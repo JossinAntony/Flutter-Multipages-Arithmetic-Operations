@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_multipage/pages/add.dart';
 import 'package:flutter_app_multipage/pages/homepage.dart';
 
 void main() {
@@ -8,6 +9,6 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Homepage();
+    return Add();
   }
 }
