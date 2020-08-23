@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-class Subtract extends StatelessWidget {
+class Multiply extends StatelessWidget {
 
   TextEditingController num1Cntrlr = TextEditingController();
   TextEditingController num2Cntrlr = TextEditingController();
@@ -12,7 +12,7 @@ class Subtract extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('SUBTRACT'),
+          title: Text('MULTIPLY'),
         ),
         body: Container(
           padding: EdgeInsets.only(left: 12.0, right: 12.0),
@@ -37,9 +37,9 @@ class Subtract extends StatelessWidget {
 
                   SizedBox(width: 4.0),
 
+                  Icon(Icons.close),
+                  /*Icon(Icons.control_point),
                   Icon(Icons.remove),
-                  /*Icon(Icons.close),
-                  Icon(Icons.control_point),
                   Icon(Icons.timeline),*/
 
                   SizedBox(width: 4.0),
@@ -66,13 +66,13 @@ class Subtract extends StatelessWidget {
                 height: 40,
                 child: RaisedButton(
                   onPressed: (){
-                    print(double.parse(num1Cntrlr.text) - double.parse(num2Cntrlr.text));
+                    print(double.parse(num1Cntrlr.text) * double.parse(num2Cntrlr.text));
                   },
-                  color: Colors.pinkAccent,
+                  color: Colors.yellowAccent,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),
                   ),
-                  child: Center(child: Text('SUBTRACT')),
+                  child: Center(child: Text('MULTIPLY')),
                 ),
               ),
             ],
