@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Subtract extends StatelessWidget {
 
@@ -24,6 +25,10 @@ class Subtract extends StatelessWidget {
                 children: <Widget>[
                   Flexible(
                     child: TextField(
+                      keyboardType: TextInputType.numberWithOptions(decimal: true),
+                      inputFormatters: [
+                        WhitelistingTextInputFormatter(RegExp(r'^\d+\.?\d{0,15}')),
+                      ],
                       controller: num1Cntrlr,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -46,6 +51,10 @@ class Subtract extends StatelessWidget {
 
                   Flexible(
                     child: TextField(
+                      keyboardType: TextInputType.numberWithOptions(decimal: true),
+                      inputFormatters: [
+                        WhitelistingTextInputFormatter(RegExp(r'^\d+\.?\d{0,15}')),
+                      ],
                       controller: num2Cntrlr,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
