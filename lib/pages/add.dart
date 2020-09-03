@@ -14,11 +14,11 @@ class _AddState extends State<Add> {
   TextEditingController num1Cntrlr = TextEditingController();
   TextEditingController num2Cntrlr = TextEditingController();
 
-  double sum = 0;
+  double _sum = 0;
 
-  _sum(double number_1, double number_2){
+  _getSum(double number_1, double number_2){
     setState(() {
-      this.sum = (number_1 + number_2);
+      this._sum = (number_1 + number_2);
     });
   }
 
@@ -97,7 +97,7 @@ class _AddState extends State<Add> {
                     borderRadius: BorderRadius.circular(8)
                   ),
                   child: Center(
-                    child: Text(sum.toString(), style: TextStyle(
+                    child: Text(_sum.toString(), style: TextStyle(
                       fontSize: 25,
                     )),
                   ),
@@ -108,7 +108,7 @@ class _AddState extends State<Add> {
 
               RaisedButton(
                 onPressed: (){
-                  _sum(double.parse(num1Cntrlr.text), double.parse(num2Cntrlr.text));
+                  _getSum(double.parse(num1Cntrlr.text), double.parse(num2Cntrlr.text));
                   print(double.parse(num1Cntrlr.text) + double.parse(num2Cntrlr.text));
                 },
                 color: Colors.greenAccent,

@@ -3,10 +3,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Multiply extends StatelessWidget {
+class Multiply extends StatefulWidget {
+
+  @override
+  _MultiplyState createState() => _MultiplyState();
+}
+
+class _MultiplyState extends State<Multiply> {
 
   TextEditingController num1Cntrlr = TextEditingController();
   TextEditingController num2Cntrlr = TextEditingController();
+
+  double _product = 0;
+
+  _getProduct(double num1, double num2){
+    setState(() {
+      this._product = num1 * num2;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,11 +84,34 @@ class Multiply extends StatelessWidget {
 
               SizedBox(height: 30.0),
 
+              SizedBox(
+                width: 150,
+                height: 40,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.lightBlueAccent,
+                        width: 2,
+                        style: BorderStyle.solid,
+                      ),
+                      borderRadius: BorderRadius.circular(8)
+                  ),
+                  child: Center(
+                    child: Text(_product.toString(), style: TextStyle(
+                      fontSize: 25,
+                    )),
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 30.0),
+
               ButtonTheme(
                 minWidth: 70,
                 height: 40,
                 child: RaisedButton(
                   onPressed: (){
+                    _getProduct(double.parse(num1Cntrlr.text), double.parse(num2Cntrlr.text));
                     print(double.parse(num1Cntrlr.text) * double.parse(num2Cntrlr.text));
                   },
                   color: Colors.yellowAccent,

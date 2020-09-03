@@ -14,11 +14,11 @@ class _DivideState extends State<Divide> {
   TextEditingController num1Cntrlr = TextEditingController();
   TextEditingController num2Cntrlr = TextEditingController();
 
-  double quotient = 0;
+  double _quotient = 0;
 
-  _quotient(double num1, double num2){
+  _getQuotient(double num1, double num2){
     setState(() {
-      this.quotient = num1 / num2;
+      this._quotient = num1 / num2;
     });
   }
 
@@ -93,7 +93,7 @@ class _DivideState extends State<Divide> {
                       borderRadius: BorderRadius.circular(8)
                   ),
                   child: Center(
-                    child: Text(quotient.toString(), style: TextStyle(
+                    child: Text(_quotient.toString(), style: TextStyle(
                       fontSize: 25,
                     )),
                   ),
@@ -107,7 +107,7 @@ class _DivideState extends State<Divide> {
                 height: 40,
                 child: RaisedButton(
                   onPressed: (){
-                    _quotient(double.parse(num1Cntrlr.text), double.parse(num2Cntrlr.text));
+                    _getQuotient(double.parse(num1Cntrlr.text), double.parse(num2Cntrlr.text));
                     print((double.parse(num1Cntrlr.text) / double.parse(num2Cntrlr.text)).toStringAsFixed(5));
                   },
                   color: Colors.purpleAccent,
