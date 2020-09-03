@@ -3,10 +3,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Subtract extends StatelessWidget {
+class Subtract extends StatefulWidget {
+
+  @override
+  _SubtractState createState() => _SubtractState();
+}
+
+class _SubtractState extends State<Subtract> {
 
   TextEditingController num1Cntrlr = TextEditingController();
   TextEditingController num2Cntrlr = TextEditingController();
+
+  double _difference = 0;
+  _getDifference(double num1, double num2){
+    setState(() {
+      this._difference = (num1 - num2);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,11 +83,34 @@ class Subtract extends StatelessWidget {
 
               SizedBox(height: 30.0),
 
+              SizedBox(
+                width: 150,
+                height: 40,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.lightBlueAccent,
+                        width: 2,
+                        style: BorderStyle.solid,
+                      ),
+                      borderRadius: BorderRadius.circular(8)
+                  ),
+                  child: Center(
+                    child: Text(_difference.toString(), style: TextStyle(
+                      fontSize: 25,
+                    )),
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 30.0),
+
               ButtonTheme(
                 minWidth: 70,
                 height: 40,
                 child: RaisedButton(
                   onPressed: (){
+                    _getDifference(double.parse(num1Cntrlr.text), double.parse(num2Cntrlr.text));
                     print(double.parse(num1Cntrlr.text) - double.parse(num2Cntrlr.text));
                   },
                   color: Colors.pinkAccent,
