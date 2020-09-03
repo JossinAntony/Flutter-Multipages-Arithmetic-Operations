@@ -3,11 +3,25 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Divide extends StatelessWidget {
+class Divide extends StatefulWidget {
   
+  @override
+  _DivideState createState() => _DivideState();
+}
+
+class _DivideState extends State<Divide> {
+
   TextEditingController num1Cntrlr = TextEditingController();
   TextEditingController num2Cntrlr = TextEditingController();
-  
+
+  double quotient = 0;
+
+  _quotient(double num1, double num2){
+    setState(() {
+      this.quotient = num1 / num2;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -66,11 +80,34 @@ class Divide extends StatelessWidget {
 
               SizedBox(height: 30.0),
 
+              SizedBox(
+                width: 150,
+                height: 40,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.lightBlueAccent,
+                        width: 2,
+                        style: BorderStyle.solid,
+                      ),
+                      borderRadius: BorderRadius.circular(8)
+                  ),
+                  child: Center(
+                    child: Text(quotient.toString(), style: TextStyle(
+                      fontSize: 25,
+                    )),
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 30.0),
+
               ButtonTheme(
                 minWidth: 100,
                 height: 40,
                 child: RaisedButton(
                   onPressed: (){
+                    _quotient(double.parse(num1Cntrlr.text), double.parse(num2Cntrlr.text));
                     print((double.parse(num1Cntrlr.text) / double.parse(num2Cntrlr.text)).toStringAsFixed(5));
                   },
                   color: Colors.purpleAccent,
