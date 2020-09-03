@@ -3,10 +3,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Add extends StatelessWidget {
+class Add extends StatefulWidget {
+
+  @override
+  _AddState createState() => _AddState();
+}
+
+class _AddState extends State<Add> {
 
   TextEditingController num1Cntrlr = TextEditingController();
   TextEditingController num2Cntrlr = TextEditingController();
+
+  double sum = 0;
+
+  _sum(double number_1, double number_2){
+    setState(() {
+      this.sum = (number_1 + number_2);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,8 +84,31 @@ class Add extends StatelessWidget {
 
               SizedBox(height: 30.0),
 
+              SizedBox(
+                width: 150,
+                height: 40,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.lightBlueAccent,
+                      width: 2,
+                      style: BorderStyle.solid,
+                    ),
+                    borderRadius: BorderRadius.circular(8)
+                  ),
+                  child: Center(
+                    child: Text(sum.toString(), style: TextStyle(
+                      fontSize: 25,
+                    )),
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 30.0),
+
               RaisedButton(
                 onPressed: (){
+                  _sum(double.parse(num1Cntrlr.text), double.parse(num2Cntrlr.text));
                   print(double.parse(num1Cntrlr.text) + double.parse(num2Cntrlr.text));
                 },
                 color: Colors.greenAccent,
