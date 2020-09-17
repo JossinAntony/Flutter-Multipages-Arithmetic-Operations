@@ -24,12 +24,7 @@ class _MultiplyState extends State<Multiply> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('MULTIPLY'),
-        ),
-        body: Container(
+    return Container(
           padding: EdgeInsets.only(left: 12.0, right: 12.0),
           alignment: Alignment.center,
           child: Column(
@@ -123,8 +118,6 @@ class _MultiplyState extends State<Multiply> {
               ),
             ],
           ),
-        )
-      )
-    );
+        );
   }
 }

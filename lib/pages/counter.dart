@@ -12,13 +12,7 @@ class _CounterState extends State<Counter> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Counter'),
-          centerTitle: true,
-        ),
-        body: SizedBox.expand(
+    return SizedBox.expand(
           child: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(colors: [Color(0xff67B26F), Color(0xff4ca2cd)],
@@ -97,8 +91,6 @@ class _CounterState extends State<Counter> {
               ),
             ),
           )
-        )
-      )
-    );
+        );
   }
 }

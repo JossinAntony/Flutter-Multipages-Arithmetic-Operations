@@ -24,12 +24,7 @@ class _DivideState extends State<Divide> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('DIVIDE'),
-        ),
-        body: Container(
+    return Container(
           alignment: Alignment.center,
           padding: EdgeInsets.only(left: 12.0, right: 12.0),
           child: Column(
@@ -119,8 +114,6 @@ class _DivideState extends State<Divide> {
               ),
             ],
           ),
-        )
-      )
-    );
+        );
   }
 }
