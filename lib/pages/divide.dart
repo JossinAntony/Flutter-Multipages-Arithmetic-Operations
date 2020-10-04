@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app_multipage/pages/sidenavbar.dart';
 
 class Divide extends StatefulWidget {
   
@@ -24,7 +25,12 @@ class _DivideState extends State<Divide> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
+        appBar: AppBar(
+        title: Text('ADD'),
+    ),
+    drawer: SideNavBar(),
+    body: Container(
           alignment: Alignment.center,
           padding: EdgeInsets.only(left: 12.0, right: 12.0),
           child: Column(
@@ -114,6 +120,7 @@ class _DivideState extends State<Divide> {
               ),
             ],
           ),
-        );
+        )
+    );
   }
 }

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app_multipage/pages/sidenavbar.dart';
 
 class Multiply extends StatefulWidget {
 
@@ -24,7 +25,12 @@ class _MultiplyState extends State<Multiply> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
+        appBar: AppBar(
+        title: Text('ADD'),
+    ),
+    drawer: SideNavBar(),
+    body: Container(
           padding: EdgeInsets.only(left: 12.0, right: 12.0),
           alignment: Alignment.center,
           child: Column(
@@ -118,6 +124,7 @@ class _MultiplyState extends State<Multiply> {
               ),
             ],
           ),
-        );
+        )
+    );
   }
 }

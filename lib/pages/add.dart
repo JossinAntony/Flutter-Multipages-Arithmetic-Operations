@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app_multipage/pages/sidenavbar.dart';
 
 class Add extends StatefulWidget {
 
@@ -24,7 +25,12 @@ class _AddState extends State<Add> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ADD'),
+      ),
+        drawer: SideNavBar(),
+        body: Container(
           padding: EdgeInsets.only(left: 12.0, right: 12.0),
           alignment: Alignment.center,
           child: Column(
@@ -52,9 +58,6 @@ class _AddState extends State<Add> {
                   SizedBox(width: 4.0),
 
                   Icon(Icons.control_point),
-                  /*Icon(Icons.close),
-                  Icon(Icons.remove),
-                  Icon(Icons.timeline),*/
 
                   SizedBox(width: 4.0),
 
@@ -114,6 +117,7 @@ class _AddState extends State<Add> {
               ),
             ],
           ),
-        );
+        )
+    );
   }
 }

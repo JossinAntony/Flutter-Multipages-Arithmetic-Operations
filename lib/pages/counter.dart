@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_multipage/pages/sidenavbar.dart';
 
 class Counter extends StatefulWidget {
   @override
@@ -12,7 +13,12 @@ class _CounterState extends State<Counter> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.expand(
+    return Scaffold(
+        appBar: AppBar(
+        title: Text('ADD'),
+    ),
+    drawer: SideNavBar(),
+    body: SizedBox.expand(
           child: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(colors: [Color(0xff67B26F), Color(0xff4ca2cd)],
@@ -91,6 +97,7 @@ class _CounterState extends State<Counter> {
               ),
             ),
           )
-        );
+        )
+    );
   }
 }
